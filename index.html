@@ -12,9 +12,6 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Magical Particles Background -->
-    <div class="magic-particles" id="particles"></div>
-
     <!-- HEADER -->
     <header>
         <a href="#" class="logo">
@@ -373,40 +370,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // Create Magical Particles
-        function createParticles() {
-            const container = document.getElementById('particles');
-            const particleCount = 30;
-            const colors = ['#667eea', '#764ba2', '#00A3E0', '#4DC3F4', '#D4AF37'];
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                
-                // Random properties
-                const size = Math.random() * 15 + 5;
-                const color = colors[Math.floor(Math.random() * colors.length)];
-                const left = Math.random() * 100;
-                const top = Math.random() * 100;
-                const duration = Math.random() * 20 + 10;
-                const delay = Math.random() * 5;
-                
-                particle.style.width = size + 'px';
-                particle.style.height = size + 'px';
-                particle.style.background = color;
-                particle.style.left = left + '%';
-                particle.style.top = top + '%';
-                particle.style.animationDuration = duration + 's';
-                particle.style.animationDelay = delay + 's';
-                particle.style.boxShadow = `0 0 ${size}px ${color}`;
-                
-                container.appendChild(particle);
-            }
-        }
-        
-        // Initialize particles
-        createParticles();
-
         // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
