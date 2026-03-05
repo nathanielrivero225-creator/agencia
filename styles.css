@@ -43,33 +43,33 @@
             --base-size: 16px;
             
             /* Font Families */
-            --display-heading_font-family: 'Archivo', sans-serif;
+            --display-heading_font-family: 'Exo 2', sans-serif;
             --display-heading_font-weight: 500;
             --display-heading_font-size: min(4.25rem, calc(1rem + 3.61vw));
             --display-heading_line-height: 1.1em;
             --display-heading_letter-spacing: -0.02em;
             --display-heading_text-transform: none;
             
-            --display-subtitle_font-family: 'Roboto Mono', monospace;
+            --display-subtitle_font-family: 'Share Tech Mono', monospace;
             --display-subtitle_font-weight: 400;
             --display-subtitle_font-size: min(0.875rem, calc(1rem + -0.14vw));
             --display-subtitle_line-height: 1.8em;
             --display-subtitle_letter-spacing: 0.7em;
             --display-subtitle_text-transform: uppercase;
             
-            --heading-1_font-family: 'Archivo', sans-serif;
+            --heading-1_font-family: 'Exo 2', sans-serif;
             --heading-1_font-weight: 500;
             --heading-1_font-size: min(3.75rem, calc(1rem + 3.06vw));
             --heading-1_line-height: 1.1em;
             --heading-1_letter-spacing: -0.02em;
             
-            --heading-2_font-family: 'Archivo', sans-serif;
+            --heading-2_font-family: 'Exo 2', sans-serif;
             --heading-2_font-weight: 500;
             --heading-2_font-size: min(2.5rem, calc(1rem + 1.67vw));
             --heading-2_line-height: 1.2em;
             --heading-2_letter-spacing: -0.02em;
             
-            --heading-3_font-family: 'Archivo', sans-serif;
+            --heading-3_font-family: 'Exo 2', sans-serif;
             --heading-3_font-weight: 500;
             --heading-3_font-size: min(2rem, calc(1rem + 1.11vw));
             
@@ -118,12 +118,12 @@
             scroll-behavior: smooth;
             -webkit-text-size-adjust: 100%;
             -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-            font-family: 'Archivo', sans-serif;
+            font-family: 'Exo 2', sans-serif;
             line-height: 1.15;
         }
 
         body {
-            font-family: 'Archivo', sans-serif;
+            font-family: 'Exo 2', sans-serif;
             background-color: var(--primary-background);
             color: var(--primary-paragraphs);
             overflow-x: hidden;
@@ -183,7 +183,7 @@
         }
 
         .logo {
-            font-family: 'Archivo', sans-serif;
+            font-family: 'Exo 2', sans-serif;
             font-size: 2.2rem;
             font-weight: 600;
             letter-spacing: 1px;
@@ -316,7 +316,7 @@
             margin-bottom: 1.5rem;
             animation: fadeInDown 1s ease;
             color: var(--primary-details);
-            font-family: 'Roboto Mono', monospace;
+            font-family: 'Share Tech Mono', monospace;
         }
 
         .hero h1 {
@@ -366,7 +366,7 @@
             cursor: pointer;
             border: none;
             font-size: 0.95rem;
-            font-family: 'Archivo', sans-serif;
+            font-family: 'Exo 2', sans-serif;
         }
 
         .btn-primary {
@@ -755,7 +755,7 @@
         }
 
         .album-date {
-            font-family: 'Roboto Mono', monospace;
+            font-family: 'Share Tech Mono', monospace;
             font-size: 0.9rem;
             color: var(--celeste);
             letter-spacing: 2px;
@@ -883,7 +883,7 @@
         .slide-overlay span {
             font-size: 0.9rem;
             color: var(--celeste);
-            font-family: 'Roboto Mono', monospace;
+            font-family: 'Share Tech Mono', monospace;
             letter-spacing: 1px;
         }
 
