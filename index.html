@@ -516,6 +516,13 @@
         let lightboxIndex = 0;
         let lightboxCategory = 'partidos';
 
+        // Prevenir menú contextual en lightbox (iOS y Android)
+        function preventDefaultTouch(e) {
+            if (e.touches.length > 1) return true;
+            e.preventDefault();
+            return false;
+        }
+
         function openLightbox(index, category) {
             lightboxIndex = index;
             lightboxCategory = category;
@@ -526,6 +533,34 @@
             lightboxImg.src = images[index].src;
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
+            
+            // Protección para iOS y Android
+            // Bloquear arrastre
+            lightboxImg.ondragstart = function() { return false; };
+            lightboxImg.ondrag = function() { return false; };
+            lightboxImg.ondragend = function() { return false; };
+            
+            // Bloquear menú contextual (Android + Desktop)
+            lightboxImg.oncontextmenu = function() { return false; };
+            lightboxImg.addEventListener('contextmenu', (e) => e.preventDefault());
+            
+            // Bloquear gestos táctiles (iOS + Android)
+            lightboxImg.addEventListener('touchstart', preventDefaultTouch, { passive: false });
+            lightboxImg.addEventListener('touchmove', preventDefaultTouch, { passive: false });
+            lightboxImg.addEventListener('touchend', preventDefaultTouch, { passive: false });
+            
+            // Bloquear presión larga (iOS + Android)
+            lightboxImg.addEventListener('longpress', (e) => e.preventDefault());
+            lightboxImg.addEventListener('gesturestart', (e) => e.preventDefault());
+            lightboxImg.addEventListener('gesturechange', (e) => e.preventDefault());
+            lightboxImg.addEventListener('gestureend', (e) => e.preventDefault());
+            
+            // Estilos inline para mayor protección
+            lightboxImg.style.userSelect = 'none';
+            lightboxImg.style.webkitUserSelect = 'none';
+            lightboxImg.style.webkitTouchCallout = 'none';
+            lightboxImg.style.MozUserSelect = 'none';
+            lightboxImg.style.msUserSelect = 'none';
         }
 
         function closeLightbox() {
