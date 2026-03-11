@@ -38,6 +38,22 @@ h1, h2, h3 {
     letter-spacing: 2px;
 }
 
+/* Prevenir descarga de imágenes - CSS Global */
+img {
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+}
+
+/* Para navegadores que soportan prefijos */
+img {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
 /* WhatsApp Float Button */
 .whatsapp-float {
     position: fixed;
@@ -1584,8 +1600,43 @@ h1, h2, h3 {
         grid-template-columns: 1fr;
     }
 
+    /* Formulario de contacto responsive */
+    .contacto-container {
+        gap: 2rem;
+    }
+
     .contacto-form {
         padding: 1.5rem;
+    }
+
+    .contacto-form input,
+    .contacto-form textarea {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .contacto-item {
+        padding: 1rem;
+    }
+
+    .contacto-item i {
+        width: 40px;
+        height: 40px;
+        font-size: 1.4rem;
+    }
+
+    .contacto-item p:last-child {
+        font-size: 0.95rem;
+    }
+
+    .cta-button-whatsapp {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .submit-button {
+        padding: 0.9rem 1.5rem;
+        font-size: 0.9rem;
     }
 
     .lightbox-prev,
