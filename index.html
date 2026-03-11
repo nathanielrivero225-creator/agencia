@@ -406,6 +406,17 @@
                 return false;
             });
         }
+        // Prevenir menú contextual en imágenes del hero
+        const heroSection = document.querySelector('.hero');
+        if (heroSection) {
+            heroSection.addEventListener('contextmenu', (e) => e.preventDefault());
+            heroSection.addEventListener('touchstart', (e) => {
+                if (e.touches.length > 1) return true;
+                e.preventDefault();
+                return false;
+            }, { passive: false });
+        }
+
         // Mobile Menu Toggle
         const mobileMenu = document.getElementById('mobile-menu');
         const navLinks = document.querySelector('.nav-links');
