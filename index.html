@@ -39,14 +39,14 @@
     <!-- Hero Section con Slider -->
     <section id="inicio" class="hero">
         <div class="hero-slider">
-            <div class="slide active" style="background-image: url('IMG_2625.JPG.jpeg');"></div>
-            <div class="slide" style="background-image: url('IMG_2624.JPG.jpeg');"></div>
-            <div class="slide" style="background-image: url('IMG_2623.JPG.jpeg');"></div>
+            <div class="slide active" style="background-image: url('IMG_2617.JPG.jpeg');"></div>
+            <div class="slide" style="background-image: url('IMG_2613.JPG.jpeg');"></div>
+            <div class="slide" style="background-image: url('IMG_2611.JPG.jpeg');"></div>
             <div class="slide" style="background-image: url('IMG_2622.JPG.jpeg');"></div>
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>CHARRÚA VISUALS</h1>
+            <h1><span class="highlight">CHARRÚA</span> VISUALS</h1>
             <p class="hero-tagline">La imagen del deporte uruguayo</p>
             <div class="hero-buttons">
                 <a href="#galeria" class="cta-button primary">Ver Galería</a>
@@ -92,27 +92,27 @@
         <!-- Galería Partidos -->
         <div class="gallery-content active" id="partidos">
             <div class="gallery-grid">
-                <div class="gallery-item" onclick="openLightbox(0, 'partidos')">
+                <div class="gallery-item" data-index="0" data-category="partidos">
                     <img src="IMG_2625.JPG.jpeg" alt="Partido">
                     <div class="gallery-watermark">© CHARRÚA VISUALS</div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox(1, 'partidos')">
+                <div class="gallery-item" data-index="1" data-category="partidos">
                     <img src="IMG_2624.JPG.jpeg" alt="Partido">
                     <div class="gallery-watermark">© CHARRÚA VISUALS</div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox(2, 'partidos')">
+                <div class="gallery-item" data-index="2" data-category="partidos">
                     <img src="IMG_2623.JPG.jpeg" alt="Partido">
                     <div class="gallery-watermark">© CHARRÚA VISUALS</div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox(3, 'partidos')">
+                <div class="gallery-item" data-index="3" data-category="partidos">
                     <img src="IMG_2622.JPG.jpeg" alt="Partido">
                     <div class="gallery-watermark">© CHARRÚA VISUALS</div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox(4, 'partidos')">
+                <div class="gallery-item" data-index="4" data-category="partidos">
                     <img src="IMG_2621.JPG.jpeg" alt="Partido">
                     <div class="gallery-watermark">© CHARRÚA VISUALS</div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox(5, 'partidos')">
+                <div class="gallery-item" data-index="5" data-category="partidos">
                     <img src="IMG_2620.JPG.jpeg" alt="Partido">
                     <div class="gallery-watermark">© CHARRÚA VISUALS</div>
                 </div>
@@ -122,19 +122,19 @@
         <!-- Galería Entrenamientos -->
         <div class="gallery-content" id="entrenamientos">
             <div class="gallery-grid">
-                <div class="gallery-item">
+                <div class="gallery-item" data-index="0" data-category="entrenamientos">
                     <img src="IMG_2619.JPG.jpeg" alt="Entrenamiento">
                     <div class="gallery-watermark">© CHARRÚA VISUALS</div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-index="1" data-category="entrenamientos">
                     <img src="IMG_2618.JPG.jpeg" alt="Entrenamiento">
                     <div class="gallery-watermark">© CHARRÚA VISUALS</div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-index="2" data-category="entrenamientos">
                     <img src="IMG_2617.JPG.jpeg" alt="Entrenamiento">
                     <div class="gallery-watermark">© CHARRÚA VISUALS</div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-index="3" data-category="entrenamientos">
                     <img src="IMG_2616.JPG.jpeg" alt="Entrenamiento">
                     <div class="gallery-watermark">© CHARRÚA VISUALS</div>
                 </div>
@@ -144,15 +144,15 @@
         <!-- Galería Retratos -->
         <div class="gallery-content" id="retratos">
             <div class="gallery-grid">
-                <div class="gallery-item">
+                <div class="gallery-item" data-index="0" data-category="retratos">
                     <img src="yo.jpeg" alt="Retrato">
                     <div class="gallery-watermark">© CHARRÚA VISUALS</div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-index="1" data-category="retratos">
                     <img src="yo1.jpeg" alt="Retrato">
                     <div class="gallery-watermark">© CHARRÚA VISUALS</div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-index="2" data-category="retratos">
                     <img src="yo2.jpeg" alt="Retrato">
                     <div class="gallery-watermark">© CHARRÚA VISUALS</div>
                 </div>
@@ -162,19 +162,19 @@
         <!-- Galería Fútbol General -->
         <div class="gallery-content" id="futbol">
             <div class="gallery-grid">
-                <div class="gallery-item">
+                <div class="gallery-item" data-index="0" data-category="futbol">
                     <img src="IMG_2615.JPG.jpeg" alt="Fútbol">
                     <div class="gallery-watermark">© CHARRÚA VISUALS</div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-index="1" data-category="futbol">
                     <img src="IMG_2614.JPG.jpeg" alt="Fútbol">
                     <div class="gallery-watermark">© CHARRÚA VISUALS</div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-index="2" data-category="futbol">
                     <img src="IMG_2613.JPG.jpeg" alt="Fútbol">
                     <div class="gallery-watermark">© CHARRÚA VISUALS</div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-index="3" data-category="futbol">
                     <img src="IMG_2612.JPG.jpeg" alt="Fútbol">
                     <div class="gallery-watermark">© CHARRÚA VISUALS</div>
                 </div>
@@ -184,13 +184,13 @@
 
     <!-- Lightbox -->
     <div class="lightbox" id="lightbox">
-        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-        <button class="lightbox-prev" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="lightbox-close" id="lightbox-close-btn">&times;</button>
+        <button class="lightbox-prev" id="lightbox-prev-btn">&#10094;</button>
         <div class="lightbox-image-container">
             <img src="" alt="Foto ampliada" id="lightbox-img">
             <div class="lightbox-watermark">© CHARRÚA VISUALS</div>
         </div>
-        <button class="lightbox-next" onclick="changeSlide(1)">&#10095;</button>
+        <button class="lightbox-next" id="lightbox-next-btn">&#10095;</button>
     </div>
 
     <!-- Sobre Mí Section -->
@@ -208,7 +208,7 @@
             <div class="sobre-mi-texto">
                 <h3>Pasión por el Fútbol Uruguayo</h3>
                 <p>Soy <strong>[Tu Nombre]</strong>, fotógrafo deportivo especializado en capturar la intensidad y emoción del fútbol uruguayo. Con más de 10 años de experiencia, he documentado los momentos más épicos de canchas de todo el país.</p>
-                <p>Mi misión es冻结 cada gesto, cada celebración, cada lágrima de alegría o frustración. Porque en el fútbol, cada segundo cuenta.</p>
+                <p>Mi misión es capturar cada gesto, cada celebración, cada lágrima de alegría o frustración. Porque en el fútbol, cada segundo cuenta.</p>
                 
                 <div class="experiencia-items">
                     <div class="experiencia-item">
@@ -349,10 +349,10 @@
                 </a>
             </div>
             <form class="contacto-form">
-                <input type="text" placeholder="Tu nombre" required>
-                <input type="email" placeholder="Tu email" required>
-                <input type="text" placeholder="Club / Equipo (opcional)">
-                <textarea placeholder="¿Qué tipo de cobertura necesitas?" rows="5" required></textarea>
+                <input type="text" name="nombre" id="nombre" placeholder="Tu nombre" required>
+                <input type="email" name="email" id="email" placeholder="Tu email" required>
+                <input type="text" name="club" id="club" placeholder="Club / Equipo (opcional)">
+                <textarea name="mensaje" id="mensaje" placeholder="¿Qué tipo de cobertura necesitas?" rows="5" required></textarea>
                 <button type="submit" class="submit-button">Enviar Mensaje</button>
             </form>
         </div>
@@ -378,6 +378,34 @@
     </footer>
 
     <script>
+        // Deshabilitar clic derecho en imágenes
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+                return false;
+            }
+        }, false);
+
+        // Prevenir drag and drop de imágenes
+        document.addEventListener('dragstart', function(e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+                return false;
+            }
+        }, false);
+
+        // Deshabilitar menú contextual en lightbox
+        const lightboxImg = document.getElementById('lightbox-img');
+        if (lightboxImg) {
+            lightboxImg.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            lightboxImg.addEventListener('dragstart', function(e) {
+                e.preventDefault();
+                return false;
+            });
+        }
         // Mobile Menu Toggle
         const mobileMenu = document.getElementById('mobile-menu');
         const navLinks = document.querySelector('.nav-links');
@@ -433,17 +461,26 @@
             dots[currentSlide].classList.add('active');
         }
 
+        // Define nextSlide before using it in setInterval
         function nextSlide() {
             showSlide(currentSlide + 1);
         }
-
-        // Auto-advance slider every 5 seconds
-        setInterval(nextSlide, 5000);
 
         // Manual slide control
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => showSlide(index));
         });
+
+        // Auto-advance slider every 5 seconds
+        // Using setInterval with function reference (CSP compliant)
+        let sliderInterval;
+        function startSliderInterval() {
+            sliderInterval = setInterval(nextSlide, 5000);
+        }
+        function stopSliderInterval() {
+            clearInterval(sliderInterval);
+        }
+        startSliderInterval();
 
         // Gallery Tabs
         const tabBtns = document.querySelectorAll('.tab-btn');
@@ -460,7 +497,22 @@
             });
         });
 
-        // Lightbox
+        // Gallery - Event delegation for lightbox (CSP compliant)
+        document.querySelectorAll('.gallery-content').forEach(galleryContent => {
+            galleryContent.addEventListener('click', (e) => {
+                const galleryItem = e.target.closest('.gallery-item');
+                if (galleryItem) {
+                    const index = parseInt(galleryItem.dataset.index, 10);
+                    const category = galleryItem.dataset.category;
+                    openLightbox(index, category);
+                }
+            });
+        });
+
+        // Lightbox button event listeners (CSP compliant)
+        document.getElementById('lightbox-close-btn').addEventListener('click', closeLightbox);
+        document.getElementById('lightbox-prev-btn').addEventListener('click', () => changeSlide(-1));
+        document.getElementById('lightbox-next-btn').addEventListener('click', () => changeSlide(1));
         let lightboxIndex = 0;
         let lightboxCategory = 'partidos';
 
@@ -494,7 +546,7 @@
             if (e.key === 'ArrowRight') changeSlide(1);
         });
 
-        // Intersection Observer for animations
+        // Intersection Observer for animations with stagger effect
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -503,6 +555,15 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
+                    // Add stagger effect based on parent container
+                    const parent = entry.target.closest('.gallery-grid, .servicios-grid, .clientes-grid, .sobre-mi-container');
+                    if (parent) {
+                        const siblings = parent.querySelectorAll('.gallery-item, .servicio-card, .cliente-item');
+                        siblings.forEach((sibling, index) => {
+                            const delay = index * 0.1;
+                            sibling.style.transitionDelay = `${delay}s`;
+                        });
+                    }
                     entry.target.classList.add('visible');
                 }
             });
@@ -511,6 +572,31 @@
         document.querySelectorAll('.servicio-card, .gallery-item, .cliente-item, .sobre-mi-container').forEach(card => {
             observer.observe(card);
         });
+
+        // Add entrance animations for stats
+        const statItems = document.querySelectorAll('.stat-item');
+        statItems.forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            item.style.transitionDelay = `${index * 0.15}s`;
+        });
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    statItems.forEach((item, index) => {
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        }, index * 150);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statsObserver.observe(document.querySelector('.stats'));
     </script>
 </body>
 </html>
