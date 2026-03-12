@@ -38,21 +38,45 @@
 
     <!-- Hero Section con Slider -->
     <section id="inicio" class="hero">
+        <!-- Image Slider -->
         <div class="hero-slider">
-            <div class="slide active" style="background-image: url('IMG_2617.JPG.jpeg');"></div>
-            <div class="slide" style="background-image: url('IMG_2613.JPG.jpeg');"></div>
-            <div class="slide" style="background-image: url('IMG_2611.JPG.jpeg');"></div>
-            <div class="slide" style="background-image: url('IMG_2622.JPG.jpeg');"></div>
+            <div class="slide active" data-index="0">
+                <div class="slide-image" style="background-image: url('IMG_2617.JPG.jpeg');"></div>
+            </div>
+            <div class="slide" data-index="1">
+                <div class="slide-image" style="background-image: url('IMG_2613.JPG.jpeg');"></div>
+            </div>
+            <div class="slide" data-index="2">
+                <div class="slide-image" style="background-image: url('IMG_2611.JPG.jpeg');"></div>
+            </div>
+            <div class="slide" data-index="3">
+                <div class="slide-image" style="background-image: url('IMG_2622.JPG.jpeg');"></div>
+            </div>
         </div>
         <div class="hero-overlay"></div>
+
+        <!-- Content -->
         <div class="hero-content">
-            <h1><span class="highlight">CHARRÚA</span> VISUALS</h1>
+            <h1 class="hero-title">
+                <span class="hero-title-light">CHARRÚA</span>
+                <br>
+                <span class="hero-title-accent">VISUALS</span>
+            </h1>
             <p class="hero-tagline">La imagen del deporte uruguayo</p>
             <div class="hero-buttons">
                 <a href="#galeria" class="cta-button primary">Ver Galería</a>
                 <a href="#contacto" class="cta-button secondary">Contratar</a>
             </div>
         </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+
+        <!-- Slider Indicators -->
         <div class="slider-controls">
             <button class="slider-dot active" data-slide="0"></button>
             <button class="slider-dot" data-slide="1"></button>
@@ -84,7 +108,7 @@
         <!-- Tabs de categorías -->
         <div class="gallery-tabs">
             <button class="tab-btn active" data-category="partidos">Partidos</button>
-            <button class="tab-btn" data-category="entrenamientos">Entrenamientos</button>
+            
             <button class="tab-btn" data-category="retratos">Retratos</button>
             <button class="tab-btn" data-category="futbol">Fútbol</button>
         </div>
@@ -195,33 +219,29 @@
 
     <!-- Sobre Mí Section -->
     <section id="sobre-mi" class="sobre-mi">
-        <h2 class="section-title">Sobre Mí</h2>
+        <h2 class="section-title">Sobre <span class="section-title-accent">Mí</span></h2>
         <div class="sobre-mi-container">
             <div class="sobre-mi-foto">
                 <img src="yo.jpeg" alt="Fotógrafo deportivo">
-                <img src="yo1.jpeg" alt="Fotógrafo trabajando" class="foto-secundaria">
-                <div class="foto-trabajo">
-                    <i class="fas fa-camera"></i>
-                    <span>Trabajando en cancha</span>
-                </div>
             </div>
             <div class="sobre-mi-texto">
-                <h3>Pasión por el Fútbol Uruguayo</h3>
-                <p>Soy <strong>[Tu Nombre]</strong>, fotógrafo deportivo especializado en capturar la intensidad y emoción del fútbol uruguayo. Con más de 10 años de experiencia, he documentado los momentos más épicos de canchas de todo el país.</p>
-                <p>Mi misión es capturar cada gesto, cada celebración, cada lágrima de alegría o frustración. Porque en el fútbol, cada segundo cuenta.</p>
+                <div class="sobre-mi-header">
+                    <i class="fas fa-camera"></i>
+                    <h3>Pasión por el Fútbol Uruguayo</h3>
+                </div>
+                <p>Soy <strong>fotógrafo deportivo</strong> especializado en capturar la <span class="text-accent">pasión e intensidad</span> del deporte uruguayo.</p>
+                <p>Cada imagen cuenta una historia, cada momento capturado transmite la emoción del juego y la dedicación de los jugadores.</p>
+                <p>Mi objetivo es inmortalizar esos instantes únicos que hacen del deporte algo especial.</p>
                 
-                <div class="experiencia-items">
-                    <div class="experiencia-item">
-                        <i class="fas fa-futbol"></i>
-                        <span>10+ Años de Experiencia</span>
-                    </div>
-                    <div class="experiencia-item">
-                        <i class="fas fa-trophy"></i>
-                        <span>Copas y Torneos covered</span>
-                    </div>
-                    <div class="experiencia-item">
-                        <i class="fas fa-users"></i>
-                        <span>50+ Clubes atendidos</span>
+                <div class="experiencia-section">
+                    <h3>Experiencia con:</h3>
+                    <div class="experiencia-tags">
+                        <span class="experiencia-tag">Nacional</span>
+                        <span class="experiencia-tag">Peñarol</span>
+                        <span class="experiencia-tag">Danubio</span>
+                        <span class="experiencia-tag">River Plate</span>
+                        <span class="experiencia-tag">Ligas Juveniles</span>
+                        <span class="experiencia-tag">Torneos Amateurs</span>
                     </div>
                 </div>
             </div>
@@ -406,15 +426,24 @@
                 return false;
             });
         }
-        // Prevenir menú contextual en imágenes del hero
+        // Prevenir menú contextual en imágenes del hero (solo long press, no scroll)
         const heroSection = document.querySelector('.hero');
         if (heroSection) {
             heroSection.addEventListener('contextmenu', (e) => e.preventDefault());
+            // Permitir scroll pero prevenir menú contextual con touchstart prolongado
+            let touchTimer;
             heroSection.addEventListener('touchstart', (e) => {
                 if (e.touches.length > 1) return true;
-                e.preventDefault();
-                return false;
-            }, { passive: false });
+                touchTimer = setTimeout(() => {
+                    e.preventDefault();
+                }, 500);
+            }, { passive: true });
+            heroSection.addEventListener('touchend', (e) => {
+                clearTimeout(touchTimer);
+            }, { passive: true });
+            heroSection.addEventListener('touchmove', (e) => {
+                clearTimeout(touchTimer);
+            }, { passive: true });
         }
 
         // Mobile Menu Toggle
@@ -460,14 +489,22 @@
 
         // Hero Slider
         let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
+        const slides = document.querySelectorAll('.hero-slider .slide');
         const dots = document.querySelectorAll('.slider-dot');
 
         function showSlide(n) {
-            slides.forEach(slide => slide.classList.remove('active'));
+            // Remove active from all slides
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+            
+            // Remove active from all dots
             dots.forEach(dot => dot.classList.remove('active'));
             
+            // Calculate new index
             currentSlide = (n + slides.length) % slides.length;
+            
+            // Activate new slide
             slides[currentSlide].classList.add('active');
             dots[currentSlide].classList.add('active');
         }

@@ -224,8 +224,6 @@ img {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    /* Protección para prevenir guardado de imagen */
-    -webkit-touch-callout: none;
     user-select: none;
     -webkit-user-select: none;
 }
@@ -238,8 +236,8 @@ img {
     width: 100%;
     height: 100%;
     z-index: 5;
-    /* Este overlay captura eventos táctiles para prevenir menú contextual */
-    pointer-events: auto;
+    /* Permitir scroll mientras se previene menú contextual */
+    pointer-events: none;
 }
 
 .hero-slider {
@@ -250,24 +248,37 @@ img {
     height: 100%;
 }
 
-.slide {
+/* Slide container */
+.hero-slider .slide {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center 30%;
     opacity: 0;
-    transition: opacity 1s ease;
+    transition: opacity 1.2s ease-in-out;
     /* Protección para prevenir guardado de imagen */
     -webkit-touch-callout: none;
     user-select: none;
     -webkit-user-select: none;
 }
 
-.slide.active {
+.hero-slider .slide.active {
     opacity: 1;
+}
+
+/* Imagen del slide */
+.slide-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center 30%;
+    transform: scale(1.1);
+    transition: transform 1.2s ease-in-out;
+}
+
+.hero-slider .slide.active .slide-image {
+    transform: scale(1);
 }
 
 .hero-overlay {
@@ -276,7 +287,7 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.8) 100%);
 }
 
 .hero-content {
@@ -289,6 +300,30 @@ img {
 
 .hero-content * {
     pointer-events: auto;
+}
+
+/* New Title Styles */
+.hero-title {
+    font-size: clamp(3.5rem, 12vw, 8rem);
+    line-height: 1;
+    margin-bottom: 1.5rem;
+}
+
+.hero-title-light {
+    color: white;
+    font-weight: 300;
+    display: inline-block;
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.hero-title-accent {
+    color: #5FB6DB;
+    display: inline-block;
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+    opacity: 0;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content h1 {
@@ -327,6 +362,33 @@ img {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 15;
+}
+
+.scroll-arrow {
+    color: rgba(255, 255, 255, 0.6);
+    animation: scrollBounce 1.5s infinite;
+}
+
+.scroll-arrow i {
+    font-size: 1.5rem;
+}
+
+@keyframes scrollBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
     }
 }
 
@@ -477,7 +539,7 @@ img {
 
 .slider-controls {
     position: absolute;
-    bottom: 2rem;
+    bottom: 5rem;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -486,38 +548,21 @@ img {
 }
 
 .slider-dot {
-    width: 12px;
-    height: 12px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.4);
     border: none;
     cursor: pointer;
-    transition: var(--transition-bounce);
-    position: relative;
-}
-
-.slider-dot::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 24px;
-    height: 24px;
-    border: 2px solid var(--accent-color);
-    border-radius: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    transition: var(--transition-bounce);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    padding: 0;
 }
 
 .slider-dot.active,
 .slider-dot:hover {
-    background: var(--accent-color);
-    transform: scale(1.3);
-}
-
-.slider-dot.active::before,
-.slider-dot:hover::before {
-    transform: translate(-50%, -50%) scale(1);
+    background: white;
+    width: 32px;
+    border-radius: 4px;
 }
 
 /* Stats Section */
@@ -560,6 +605,10 @@ img {
     display: inline-block;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.section-title-accent {
+    color: #5FB6DB;
 }
 
 .section-title::before {
@@ -841,7 +890,11 @@ img {
 /* Sobre Mí Section */
 .sobre-mi {
     padding: 5rem 5%;
-    background: white;
+    background: #000000;
+}
+
+.sobre-mi .section-title {
+    color: white;
 }
 
 .sobre-mi-container {
@@ -859,64 +912,37 @@ img {
 
 .sobre-mi-foto img:first-child {
     width: 100%;
-    max-width: 450px;
+    max-width: 500px;
     border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
     transition: var(--transition-bounce);
 }
 
 .sobre-mi-foto:hover img:first-child {
     transform: translateY(-5px) rotate(-1deg);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
 }
 
-.foto-secundaria {
-    position: absolute;
-    bottom: 20px;
-    right: -40px;
-    width: 240px;
-    height: 240px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid transparent;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transition: var(--transition-bounce);
+.sobre-mi-texto {
+    color: rgba(255, 255, 255, 0.8);
 }
 
-.sobre-mi-foto:hover .foto-secundaria {
-    transform: translateY(-10px) rotate(5deg) scale(1.05);
-    border-color: var(--accent-color);
-    box-shadow: 0 20px 40px rgba(26, 42, 224, 0.3);
-}
-
-.foto-trabajo {
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--accent-color);
-    color: white;
-    padding: 0.8rem 1.5rem;
-    border-radius: 50px;
+.sobre-mi-header {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.9rem;
-    white-space: nowrap;
-    transition: var(--transition-bounce);
+    gap: 1rem;
+    margin-bottom: 2rem;
 }
 
-.foto-trabajo i {
-    transition: var(--transition-bounce);
+.sobre-mi-header i {
+    font-size: 2rem;
+    color: #5FB6DB;
 }
 
-.sobre-mi-foto:hover .foto-trabajo {
-    transform: translateX(-50%) translateY(-5px);
-    box-shadow: 0 10px 25px rgba(26, 42, 224, 0.4);
-}
-
-.sobre-mi-foto:hover .foto-trabajo i {
-    animation: pulse 1s infinite;
+.sobre-mi-header h3 {
+    font-size: 2rem;
+    color: white;
+    margin: 0;
 }
 
 .sobre-mi-texto h3 {
@@ -926,14 +952,55 @@ img {
 }
 
 .sobre-mi-texto p {
-    color: var(--text-gray);
-    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
     margin-bottom: 1.2rem;
     line-height: 1.8;
 }
 
 .sobre-mi-texto strong {
-    color: var(--accent-color);
+    color: #5FB6DB;
+}
+
+.sobre-mi-texto .text-accent {
+    color: #5FB6DB;
+    font-weight: 500;
+}
+
+.experiencia-section {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.experiencia-section h3 {
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.experiencia-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.experiencia-tag {
+    padding: 0.5rem 1rem;
+    background: rgba(95, 182, 219, 0.15);
+    border: 1px solid rgba(95, 182, 219, 0.3);
+    border-radius: 8px;
+    color: #5FB6DB;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.experiencia-tag:hover {
+    background: rgba(95, 182, 219, 0.25);
+    transform: translateY(-2px);
 }
 
 .experiencia-items {
@@ -1514,11 +1581,8 @@ img {
         justify-content: center;
     }
 
-    .foto-secundaria {
-        right: 0px;
-        bottom: 0px;
-        width: 180px;
-        height: 180px;
+    .sobre-mi-foto img:first-child {
+        max-width: 400px;
     }
 
     .contacto-container {
@@ -1706,6 +1770,31 @@ img {
     .servicio-card {
         transition: opacity 0.6s ease, transform 0.6s ease;
     }
+}
+
+/* Sobre Mí animations */
+.sobre-mi-foto,
+.sobre-mi-texto {
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.sobre-mi-foto {
+    transform: translateX(-30px);
+}
+
+.sobre-mi-texto {
+    transform: translateX(30px);
+}
+
+.sobre-mi-container.visible .sobre-mi-foto,
+.sobre-mi-container.visible .sobre-mi-texto {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.sobre-mi-container.visible .sobre-mi-texto {
+    transition-delay: 0.2s;
 }
 
 @supports (-webkit-touch-callout: smooth) {
