@@ -16,6 +16,7 @@
         <a href="#inicio" class="nav-logo">CHARRUA <span>VISUALS</span></a>
         <ul class="nav-links">
             <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#partidos">Partidos</a></li>
             <li><a href="#galeria">Galeria</a></li>
             <li><a href="#sobre-mi">Sobre Mi</a></li>
             <li><a href="#servicios">Servicios</a></li>
@@ -38,7 +39,9 @@
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="hero-title">CHARRUA <span>VISUALS</span></h1>
+            <div class="hero-logo">
+                <img src="logo.jpeg" alt="CHARRUA VISUALS" loading="eager">
+            </div>
             <p class="hero-subtitle">Fotografia profesional para el deporte uruguayo. Capturando la excelencia dentro y fuera de la cancha.</p>
             <div class="hero-buttons">
                 <a href="#galeria" class="btn btn-primary">Ver Portafolio</a>
@@ -47,6 +50,90 @@
         </div>
         <div class="scroll-indicator">
             <span></span>
+        </div>
+    </section>
+
+    <!-- Featured Matches Section -->
+    <section class="featured-matches" id="partidos">
+        <div class="section-header reveal">
+            <span class="section-label">Cobertura</span>
+            <h2 class="section-title">Partidos Destacados</h2>
+            <p class="section-subtitle">Los encuentros mas importantes del futbol uruguayo capturados con profesionalismo</p>
+        </div>
+        
+        <div class="matches-grid">
+            <div class="match-card reveal">
+                <div class="match-image">
+                    <img src="IMG_2611.jpg" alt="Nacional vs Peñarol" loading="lazy">
+                    <div class="match-overlay"></div>
+                    <span class="match-date">15 Mar 2024</span>
+                    <span class="match-competition">Copa Uruguay</span>
+                </div>
+                <div class="match-teams">
+                    <div class="team">
+                        <img src="nacional.png" alt="Nacional">
+                        <span class="team-name">Nacional</span>
+                    </div>
+                    <div class="match-vs">VS</div>
+                    <div class="team">
+                        <img src="peñarol.png" alt="Peñarol">
+                        <span class="team-name">Peñarol</span>
+                    </div>
+                </div>
+                <div class="match-score">
+                    <span>2 - 1</span>
+                </div>
+            </div>
+            
+            <div class="match-card reveal">
+                <div class="match-image">
+                    <img src="IMG_2614.jpg" alt="Liverpool vs Defensor" loading="lazy">
+                    <div class="match-overlay"></div>
+                    <span class="match-date">10 Mar 2024</span>
+                    <span class="match-competition">Primera División</span>
+                </div>
+                <div class="match-teams">
+                    <div class="team">
+                        <img src="liverpool.png" alt="Liverpool">
+                        <span class="team-name">Liverpool</span>
+                    </div>
+                    <div class="match-vs">VS</div>
+                    <div class="team">
+                        <img src="defensor.png" alt="Defensor">
+                        <span class="team-name">Defensor</span>
+                    </div>
+                </div>
+                <div class="match-score">
+                    <span>0 - 0</span>
+                </div>
+            </div>
+            
+            <div class="match-card reveal">
+                <div class="match-image">
+                    <img src="IMG_2616.jpg" alt="Cerro Largo vs Nacional" loading="lazy">
+                    <div class="match-overlay"></div>
+                    <span class="match-date">08 Mar 2024</span>
+                    <span class="match-competition">Primera División</span>
+                </div>
+                <div class="match-teams">
+                    <div class="team">
+                        <img src="cerrolargo.png" alt="Cerro Largo">
+                        <span class="team-name">Cerro Largo</span>
+                    </div>
+                    <div class="match-vs">VS</div>
+                    <div class="team">
+                        <img src="nacional.png" alt="Nacional">
+                        <span class="team-name">Nacional</span>
+                    </div>
+                </div>
+                <div class="match-score">
+                    <span>1 - 3</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="matches-cta reveal">
+            <a href="#galeria" class="btn btn-primary">Ver Galeria Completa</a>
         </div>
     </section>
 
@@ -474,6 +561,16 @@
 
         window.addEventListener('scroll', checkReveal);
         checkReveal();
+
+        // Parallax Effect
+        const heroSlide = document.querySelector('.hero-slide');
+        
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            if (heroSlide && scrolled < window.innerHeight) {
+                heroSlide.style.transform = `translateY(${scrolled * 0.4}px)`;
+            }
+        });
 
         // Form Submission
         document.getElementById('contactForm').addEventListener('submit', (e) => {
